@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from  "dotenv"
 import dbConnect from "./src/db/dbConnect.js"
 import userRoute from "./src/route/userRoute.js"
+import profileRouter from "./src/route/profileRoute.js"
 
 
 dotenv.config()
@@ -15,6 +16,7 @@ const PORT=process.env.PORT
 //base route
 
 app.use("/api/user",userRoute)
+app.use("/api/user",profileRouter)
 
 
 

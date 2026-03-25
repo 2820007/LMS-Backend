@@ -117,9 +117,10 @@ export const forgetPassword=async(req,res)=>{
        await existUser[0].save()
 
     await sendEmail({
-        email:userEmail,
-        subject:"Otp for digitalFood forgetPassword",
-        message:`Your otp is${otp}. Donot share with any one`
+    email: userEmail,
+    subject: "Your OTP Verification Code",
+    otp:otp,
+    appName: "Vertex Academy"
     })
     res.status(200).json({
         message:"Email sent successfully"
