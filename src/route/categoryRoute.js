@@ -1,5 +1,5 @@
 import express from "express";
-import { createCategory, getCategories, deleteCategory } from "../controllers/categoryController.js";
+import { createCategory, getCategories, deleteCategory } from "../controller/categoryController.js";
 import isAuthenticated from "../middleware/isAuthenticate.js";
 import permitTo from "../middleware/permitTo.js";
 import catchAsync from "../services/cathAsync.js";

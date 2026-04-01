@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 // Enum replacement in JS
-const EnrollmentStatus = {
+ export const EnrollmentStatus = {
   APPROVE: "approve",
   REJECT: "reject",
   PENDING: "pending",

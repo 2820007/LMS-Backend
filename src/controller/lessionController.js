@@ -1,5 +1,5 @@
-import Lesson from "../models/lessonModel.js";
-import Course from "../models/courseModel.js";
+import Lesson from "../model/lessionModel.js";
+import Course from "../model/courseModel.js";
 
 // Create lesson
 export const createLesson = async (req, res) => {

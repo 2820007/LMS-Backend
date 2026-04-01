@@ -1,5 +1,5 @@
-import Payment, { PaymentMethod, PaymentStatus } from "../models/paymentModel.js";
-import Enrollment from "../models/enrollmentModel.js";
+import Payment, { PaymentMethod, PaymentStatus } from "../model/paymentModel.js";
+import Enrollment from "../model/enrollmentModel.js";
 
 // Create Payment
 export const createPayment = async (req, res) => {

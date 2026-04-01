@@ -23,7 +23,7 @@ const userSchema=mongoose.Schema(
       required: [true, "password must be required"],
      
     },
-      image: {
+      userImage: {
       type: String,
       
      

@@ -1,9 +1,10 @@
 import express from "express";
-import { protect, admin } from "../middleware/auth.js";
-import { enrollStudent, updateEnrollmentStatus, getEnrollments } from "../controllers/enrollmentController.js";
+
+import { enrollStudent, updateEnrollmentStatus, getEnrollments } from "../controller/enrollmentController.js";
 import catchAsync from "../services/cathAsync.js";
 import permitTo from "../middleware/permitTo.js";
-import enrollmentRouter from './enrollmentRoute';
+import isAuthenticated from "../middleware/isAuthenticate.js";
+
 
 const enrollmentRouter = express.Router();
 

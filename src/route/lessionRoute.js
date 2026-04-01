@@ -4,7 +4,7 @@ import {
   getLessonsByCourse,
   updateLesson,
   deleteLesson,
-} from "../controllers/lessonController.js";
+} from "../controller/lessionController.js";
 import isAuthenticated from "../middleware/isAuthenticate.js";
 import permitTo from "../middleware/permitTo.js";
 import catchAsync from "../services/cathAsync.js";

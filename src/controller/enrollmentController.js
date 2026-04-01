@@ -1,6 +1,6 @@
-import Enrollment, { EnrollmentStatus } from "../models/enrollmentModel.js";
-import Course from "../models/courseModel.js";
-import User from "../models/userModel.js";
+import Enrollment, { EnrollmentStatus } from "../model/enrollmentModel.js";
+import Course from "../model/courseModel.js";
+import User from "../model/userModel.js";
 
 // Enroll student
 export const enrollStudent = async (req, res) => {

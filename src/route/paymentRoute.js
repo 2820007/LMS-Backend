@@ -1,6 +1,6 @@
 import express from "express";
-import { protect, admin } from "../middleware/auth.js";
-import { createPayment, getPayments, getStudentPayments } from "../controllers/paymentController.js";
+
+import { createPayment, getPayments, getStudentPayments } from "../controller/paymentController.js";
 import isAuthenticated from "../middleware/isAuthenticate.js";
 import catchAsync from "../services/cathAsync.js";
 

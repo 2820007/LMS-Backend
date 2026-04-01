@@ -3,13 +3,13 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 // Enum replacements in JS
-const Status = {
+export const PaymentStatus = {
   COMPLETED: "completed",
   PENDING: "pending",
   FAILED: "failed",
 };
 
-const PaymentMethod = {
+export const PaymentMethod = {
   KHALTI: "khalti",
   ESEWA: "esewa",
 };
@@ -27,8 +27,8 @@ const paymentSchema = new Schema({
 
   status: {
     type: String,
-    enum: [Status.COMPLETED, Status.PENDING, Status.FAILED],
-    default: Status.PENDING,
+    enum: [PaymentStatus.COMPLETED, PaymentStatus.PENDING, PaymentStatus.FAILED],
+    default: PaymentStatus.PENDING,
   },
 
   paymentMethod: {

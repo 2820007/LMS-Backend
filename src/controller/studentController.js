@@ -1,7 +1,7 @@
-import Enrollment from "../models/enrollmentModel.js";
-import Lesson from "../models/lessonModel.js";
-import Course from "../models/courseModel.js";
-import Payment from "../models/paymentModel.js";
+import Enrollment from "../model/enrollmentModel.js";
+import Lesson from "../model/lessionModel.js";
+// import Course from "../models/courseModel.js";
+import Payment from "../model/paymentModel.js";
 
 // Get my courses
 export const getMyCourses = async (req, res) => {

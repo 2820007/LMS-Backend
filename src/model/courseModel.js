@@ -24,16 +24,25 @@ const courseSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Category",
   },
-  // lessons: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Lesson",
-  //   },
-  // ],
+  lessons: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Lesson",
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
   },
+  teacher:{
+    type:Schema.Types.ObjectId,
+    ref:"User"
+  },
+  image:{
+    type:String,
+    required:true
+  }
+
 });
 
 const Course =

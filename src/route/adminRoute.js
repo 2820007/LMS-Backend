@@ -1,6 +1,6 @@
 import express from "express";
-import { protect, admin } from "../middleware/auth.js";
-import { totalCourses, totalStudents, totalPayments, allEnrollments } from "../controllers/adminController.js";
+
+import { totalCourses, totalStudents, totalPayments, allEnrollments } from "../controller/adminController.js";
 import catchAsync from "../services/cathAsync.js";
 
 const adminRouter = express.Router();
