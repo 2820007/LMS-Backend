@@ -1,51 +1,53 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
-const { Schema } = mongoose;
-
-const courseSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  duration: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: "Category",
-  },
-  lessons: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Lesson",
+const courseSchema=new mongoose.Schema({
+    courseTitle:{
+        type:String,
+        required:true,
     },
-  ],
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  teacher:{
-    type:Schema.Types.ObjectId,
-    ref:"User"
-  },
-  image:{
-    type:String,
-    required:true
-  }
+    subTitle:{
+        type:String,
+    },
+    description:{
+        type:String,
 
-});
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    courseLevel:{
+        type:String,
+        enum:["Beginner","Medium","Advance"]
+    },
+    coursePrice:{
+        type:Number,
+    },
+    enrolledStudents:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        }
+    ],
+    lecture:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Lecture"
+        }
+    ],
+    creater:{
+         type:mongoose.Schema.Types.ObjectId,
+         ref:"User"
+    },
+    isPublished:{
+        type:Boolean,
+        default:false
+    }
 
-const Course =
-  mongoose.models.Course || mongoose.model("Course", courseSchema);
+},{
+    timestamps:true
+})
 
-export default Course;
+
+const Course=mongoose.model("Course",courseSchema)
+export default Course

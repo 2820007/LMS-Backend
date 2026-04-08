@@ -1,37 +1,28 @@
 import jwt from "jsonwebtoken";
 import User from "../model/userModel.js";
 
-// Protect routes middleware
+
 const isAuthenticated = async (req, res, next) => {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader) {
-        return res.status(401).json({ message: "JWT must be provided" });
-    }
-
-    // Accept both "Bearer TOKEN" or just "TOKEN"
-    const token = authHeader.startsWith("Bearer ")
-        ? authHeader.split(" ")[1]
-        : authHeader;
+  try {
+    const token = req.cookies.token;
 
     if (!token) {
-        return res.status(401).json({ message: "JWT must be provided" });
+      return res.status(403).json({ success: false, message: "Token not provided!" });
     }
 
-    try {
-        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const verified_token = jwt.verify(token, process.env.SECRET_KEY);
 
-        const user = await User.findById(decoded.id);
-        if (!user) {
-            return res.status(404).json({ message: "User not found" });
-        }
+    const userInfo = await User.findById(verified_token.id);
 
-        req.user = user; // attach user to request
-        next();
-    } catch (error) {
-        return res.status(401).json({ message: "Invalid or expired token" });
+    if (!userInfo) {
+      return res.status(404).json({ success: false, message: "User not found!" });
     }
+
+    req.userInfo = userInfo;
+    next();
+  } catch (error) {
+    return res.status(401).json({ success: false, message: "Invalid or malformed token", error: error.message });
+  }
 };
 
-
-export default isAuthenticated
+export default isAuthenticated;

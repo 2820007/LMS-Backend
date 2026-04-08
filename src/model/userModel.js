@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const userSchema=mongoose.Schema(
-    {
+const userSchema = new Schema(
+  {
     userEmail: {
       type: String,
       unique:true,
@@ -13,26 +14,23 @@ const userSchema=mongoose.Schema(
       require: [true, "userName must be provided"],
     },
 
-    userPhoneNumber: {
-      type: String,
-      required: [true, "phone must be provided"],
-    },
+   
 
     userPassword: {
       type: String,
       required: [true, "password must be required"],
      
     },
-      userImage: {
-      type: String,
-      
-     
+    photoUrl:{
+        type:String,
+        default:""
     },
 
     role: {
       type: String,
-      enum: ["student", "admin"],
-      default: "student",
+      enum: ["student", "instructor"],
+      required:true,
+      default: "",
     },
     otp: {
       type: Number,
@@ -43,13 +41,22 @@ const userSchema=mongoose.Schema(
       default: false,
       
     },
+     description: {
+      type: String,
+      
+      
+    },
 
+    enrolledCourse:[{
+      type:Schema.Types.ObjectId,
+      ref:"Course"
+    }]
   },
   {
     timestamps: true,
   },
-)
+);
 
-
-const User=mongoose.model("User",userSchema)
+const User = mongoose.model("User", userSchema);
 export default User
+
