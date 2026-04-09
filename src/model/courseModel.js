@@ -5,6 +5,10 @@ const courseSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+     courseThumbnail:{
+        type:String,
+      
+    },
     subTitle:{
         type:String,
     },
